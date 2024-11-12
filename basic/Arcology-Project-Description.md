@@ -22,3 +22,7 @@ Misskey 集成了 PWA 模块，可以在支持的环境上将网页作为应用�
 但其原生自带的网页客户端的依赖比较庞大，运行时间长后对系统的资源和负载有不小的要求。如果您使用的是 Apple 生态的产品（如 iPhone 、 iPad 或是 Mac ），我们推荐您使用 [Kimis] 以获得更佳的体验。
 
 [Kimis]: https://github.com/Lakr233/Kimis
+
+::: details 说明
+以上内容借鉴了 [喵窝](https://docs.nya.one/) 的规则，在此基础上有作修改。
+:::
