@@ -12,7 +12,7 @@ hero:
       link: https://sky.lzplus.top/
     - theme: alt
       text: 开始阅读
-      link: /basic/api-examples
+      link: /basic/Arcology-Project-Description
 
 features:
   - title: 去中心化社交

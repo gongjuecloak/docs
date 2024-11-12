@@ -30,7 +30,7 @@ export default defineConfig({
         text: '基础规范',
         items: [
           { text: '实例说明', link: '/basic/Arcology-Project-Description' },
-          { text: '服务条款', link: '/basic/Terms-of-Service' },
+          { text: '实例规则', link: '/basic/Instance-Rules' },
           { text: '隐私政策', link: '/basic/Privacy-Policy' }
         ]
       }
@@ -44,6 +44,10 @@ export default defineConfig({
         dateStyle: 'full',
         timeStyle: 'medium'
       }
+    },
+    editLink: {
+      pattern: 'https://github.com/gongjuecloak/docs/edit/main/:path',
+      text: '在GitHub上编辑'
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/gongjuecloak/docs' }
