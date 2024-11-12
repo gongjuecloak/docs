@@ -12,8 +12,8 @@
 
 请参见 [实例规则] 与 [隐私政策] 。
 
-[实例规则]: /basic/Instance-Rules/
-[隐私政策]: /basic/Privacy-Policy/
+[实例规则]: /basic/Instance-Rules
+[隐私政策]: /basic/Privacy-Policy
 
 ## 客户端
 
