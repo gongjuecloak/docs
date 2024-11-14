@@ -31,7 +31,8 @@ export default defineConfig({
         items: [
           { text: '实例说明', link: '/basic/Arcology-Project-Description' },
           { text: '实例规则', link: '/basic/Instance-Rules' },
-          { text: '隐私政策', link: '/basic/Privacy-Policy' }
+          { text: '隐私政策', link: '/basic/Privacy-Policy' },
+          { text: '注意事项', link: '/basic/IMPORTANT_NOTES'}
         ]
       }
     ],
