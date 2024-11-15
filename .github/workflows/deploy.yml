@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境来运行构建任务
+    strategy:
+      matrix:
+        task: [lint, style-preprocess, build-vitepress]  # 定义并行任务，分别是代码检查、样式预处理、VitePress构建
     steps:
       - name: Checkout
         uses: actions/checkout@v4  # 检出仓库代码到运行环境
@@ -19,14 +22,42 @@ jobs:
         uses: actions/setup-node@v4  # 设置 Node.js 环境
         with:
           node-version: 20  # 指定 Node.js 的版本为 20，可按需调整
-          cache: 'npm'  # 使用 npm 缓存，加快依赖安装速度，也可以是 pnpm 或 yarn 等，取决于你的项目
+          cache: 'npm'  # 使用 npm 缓存，加快依赖安装速度
 
       - name: Install Dependencies
-        run: npm install  # 安装项目依赖，若使用 pnpm 则为 pnpm install，yarn 则为 yarn install
-      
-      - name: Build VitePress
+        id: cache-npm-dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-${{ hashFiles('package.json') }}-
+            ${{ runner.os }}-npm-
+        run: npm install
+
+      - name: ${{ matrix.task }}
+        if: ${{ matrix.task == 'lint' }}
+        run: npm run lint  # 执行代码检查任务，需确保项目中有对应的lint脚本定义，比如eslint检查脚本
+        if: ${{ matrix.task =='style-preprocess' }}
+        run: npm run style-preprocess  # 执行样式预处理任务，比如编译Sass等，需项目中有对应脚本定义
+        if: ${{ matrix.task == 'build-vitepress' }}
         run: npm run docs:build  # 运行 VitePress 的构建命令，假设你的构建脚本名为 docs:build，可根据实际修改
-        # 如果使用 pnpm 则为 pnpm docs:build，yarn 则为 yarn docs:build
+
+      - name: Clean up build artifacts
+        run: |
+          find docs/.vitepress/dist - name "*.map" - delete  # 清理构建产物目录下的.map文件，精简构建产物
+
+      - name: Check VitePress Configuration
+        run: |
+          if grep -q "server.cache" vite.config.js; then
+            echo "VitePress cache strategy is set."
+          else
+            echo "Consider setting a cache strategy in VitePress configuration."
+          fi
+          # 检查插件使用情况，这里只是简单示例，实际可以更复杂
+          if grep -q "vite-plugin-some-plugin" vite.config.js; then
+            echo "Some plugin is used, consider its optimization."
+          fi
 
       - name: Archive Artifacts
         uses: actions/upload-artifact@v3  # 将构建生成的文件作为制品上传，方便后续部署等操作使用
