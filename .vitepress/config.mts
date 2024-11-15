@@ -17,12 +17,12 @@ export default defineConfig({
       {
         text: '友链',
         items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' }
+          { text: '博客', link: 'https://blog.gjcloak.top/' },
+          { text: '理想城', link: 'https://sky.lzplus.top/' },
+          { text: '状态', link: '/item-3' }
         ]
       },
-      { text: '订阅', link: '/markdown-examples' }
+      { text: '订阅', link: 'https://sky.lzplus.top/@docs' }
     ],
 
     sidebar: [
