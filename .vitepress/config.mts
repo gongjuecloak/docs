@@ -19,7 +19,7 @@ export default defineConfig({
         items: [
           { text: '博客', link: 'https://blog.gjcloak.top/' },
           { text: '理想城', link: 'https://sky.lzplus.top/' },
-          { text: '状态', link: '/item-3' }
+          { text: '状态', link: 'https://stauts.lzplus.top/' }
         ]
       },
       { text: '订阅', link: 'https://sky.lzplus.top/@docs' }
