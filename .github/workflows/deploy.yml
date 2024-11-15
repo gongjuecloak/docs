@@ -1,53 +1,35 @@
-# 构建 VitePress 站点并将其部署到 GitHub Pages 的示例工作流程
-#
-name: Deploy VitePress site to Pages
+name: Build VitePress Site
 
 on:
-  # 在针对 `main` 分支的推送上运行。如果你
-  # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
-    branches: [main]
-
-  # 允许你从 Actions 选项卡手动运行此工作流程
-  workflow_dispatch:
-
-# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 只允许同时进行一次部署，跳过正在运行和最新队列之间的运行队列
-# 但是，不要取消正在进行的运行，因为我们希望允许这些生产部署完成
-concurrency:
-  group: pages
-  cancel-in-progress: false
+    branches: [main]  # 当向 main 分支推送时触发构建，可根据实际情况修改默认分支名
+  pull_request:
+    branches: [main]  # 在向 main 分支发起拉请求时也触发构建，方便提前检查构建情况
 
 jobs:
-  # 构建工作
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境来运行构建任务
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # 检出仓库代码到运行环境
         with:
-          fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
-      # - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消此区域注释
-      #   with:
-      #     version: 9
-      # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
-      - name: Setup Node
-        uses: actions/setup-node@v4
+          fetch-depth: 0  # 获取完整的提交历史，确保依赖版本等信息准确
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4  # 设置 Node.js 环境
         with:
-          node-version: 20
-          cache: npm # 或 pnpm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: npm ci # 或 pnpm install / yarn install / bun install
-      - name: Build with VitePress
-        run: npm run docs:build # 或 pnpm docs:build / yarn docs:build / bun run docs:build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          node-version: 20  # 指定 Node.js 的版本为 20，可按需调整
+          cache: 'npm'  # 使用 npm 缓存，加快依赖安装速度，也可以是 pnpm 或 yarn 等，取决于你的项目
+
+      - name: Install Dependencies
+        run: npm install  # 安装项目依赖，若使用 pnpm 则为 pnpm install，yarn 则为 yarn install
+      
+      - name: Build VitePress
+        run: npm run docs:build  # 运行 VitePress 的构建命令，假设你的构建脚本名为 docs:build，可根据实际修改
+        # 如果使用 pnpm 则为 pnpm docs:build，yarn 则为 yarn docs:build
+
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v3  # 将构建生成的文件作为制品上传，方便后续部署等操作使用
         with:
-          path: docs/.vitepress/dist
+          name: vitepress-build-artifacts
+          path: docs/.vitepress/dist  # 假设 VitePress 构建输出目录为这里，根据实际情况调整
