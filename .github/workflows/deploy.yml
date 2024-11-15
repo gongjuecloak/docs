@@ -26,7 +26,9 @@ jobs:
         # 安装pnpm
       - name: Setup pnpm
         run: npm i -g pnpm
-      - name: Setup pnpm
+      - name: Setup vitepress
+        run: pnpm add -D vitepress
+      - name: Install yilai
         run: npm install
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
