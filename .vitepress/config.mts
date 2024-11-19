@@ -18,11 +18,11 @@ export default defineConfig({
         text: '友链',
         items: [
           { text: '博客', link: 'https://blog.gjcloak.top/' },
-          { text: '理想城', link: 'https://sky.lzplus.top/' },
+          { text: '理想城', link: 'https://lzplus.top/' },
           { text: '状态', link: 'https://stauts.lzplus.top/' }
         ]
       },
-      { text: '订阅', link: 'https://sky.lzplus.top/@docs' }
+      { text: '订阅', link: 'https://lzplus.top/@docs' }
     ],
 
     sidebar: [
@@ -38,9 +38,9 @@ export default defineConfig({
       {
         text: '其他',
         items: [
-          { text: '联系我们', link: '/basic/' },
-          { text: '服务框架', link: '/basic/' },
-          { text: '赞助', link: '/basic/' }
+          { text: '联系我们', link: '/other/contact-us' },
+          { text: '服务架构', link: '/other/Service-Architecture' },
+          { text: '赞助', link: '/other/sponsor' }
         ]
       }
     ],

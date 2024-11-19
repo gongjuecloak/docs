@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 加入理想城
-      link: https://sky.lzplus.top/
+      link: https://lzplus.top/
     - theme: alt
       text: 开始阅读
       link: /basic/Arcology-Project-Description
