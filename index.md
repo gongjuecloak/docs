@@ -6,6 +6,9 @@ hero:
   name: "理想城"
   text: "一城即世界"
   tagline: 在这里我们会提供许多可以公开的文档，希望能为您提供帮助，预祝您使用愉快。 🎉
+  image:
+    src: /img/home.jpg
+    alt: 背景图
   actions:
     - theme: brand
       text: 加入理想城
