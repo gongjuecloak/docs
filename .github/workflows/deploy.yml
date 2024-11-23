@@ -28,6 +28,8 @@ jobs:
         run: npm i -g pnpm
       - name: Setup vitepress
         run: pnpm add -D vitepress
+      - name: Setup vitepress-plugin-comment-with-giscus
+        run: pnpm add -D vitepress-plugin-comment-with-giscus
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
