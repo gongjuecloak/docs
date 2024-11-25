@@ -22,8 +22,5 @@
 
 可联系[公爵](https://lzplus.top/@gjcloak)
 
-### 交流讨论
-
-可加入[此房间](https://matrix.to/#/#discuss:matrix.lzplus.top)
 
 

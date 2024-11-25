@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 import { nav } from './configs'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/docs/',
   title: "理想城",
   description: "理想城相关文档",
   head: [['link', { rel: 'icon', href: '/img/地球星球.png' }]],
@@ -12,25 +11,25 @@ export default defineConfig({
   
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/docs/img/地球星球.svg',
+    logo: '/img/地球星球.svg',
     nav,
 
     sidebar: [
       {
         text: '基础规范',
         items: [
-          { text: '实例说明', link: '/docs/basic/Arcology-Project-Description' },
-          { text: '实例规则', link: '/docs/basic/Instance-Rules' },
-          { text: '隐私政策', link: '/docs/basic/Privacy-Policy' },
-          { text: '注意事项', link: '/docs/basic/IMPORTANT_NOTES'}
+          { text: '实例说明', link: '/basic/Arcology-Project-Description' },
+          { text: '实例规则', link: '/basic/Instance-Rules' },
+          { text: '隐私政策', link: '/basic/Privacy-Policy' },
+          { text: '注意事项', link: '/basic/IMPORTANT_NOTES'}
         ]
       },
       {
         text: '其他',
         items: [
-          { text: '联系我们', link: '/docs/other/contact-us' },
-          { text: '服务架构', link: '/docs/other/Service-Architecture' },
-          { text: '赞助', link: '/docs/other/sponsor' }
+          { text: '联系我们', link: '/other/contact-us' },
+          { text: '服务架构', link: '/other/Service-Architecture' },
+          { text: '赞助', link: '/other/sponsor' }
         ]
       }
     ],
