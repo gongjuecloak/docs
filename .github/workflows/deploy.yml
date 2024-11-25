@@ -31,8 +31,6 @@ jobs:
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
-      - name: Setup vitepress-plugin-comment-with-giscus
-        run: pnpm add -D vitepress-plugin-comment-with-giscus
         
       # 执行发布到库
 
