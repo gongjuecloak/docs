@@ -4,11 +4,28 @@ import { nav } from './configs'
 export default defineConfig({
   title: "理想城",
   description: "理想城相关文档",
-  head: [['link', { rel: 'icon', href: '/img/地球星球.png' }]],
+
   sitemap: {
     hostname: 'https://docs.lzplus.top'
   },
-  
+  head: [
+    [
+      'link',
+      { rel: 'icon', href: '/img/地球星球.png' }
+    ],
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-CTJ19CXZ5L' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CTJ19CXZ5L');`
+    ]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/img/地球星球.svg',
