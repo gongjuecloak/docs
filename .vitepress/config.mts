@@ -30,7 +30,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/img/地球星球.svg',
     nav,
-
+    returnToTopLabel:'返回顶部',
+    sidebarMenuLabel:'目录', 
     sidebar: [
       {
         text: '基础规范',
@@ -56,7 +57,7 @@ export default defineConfig({
     lastUpdated: {
       text: '更新于 ',
       formatOptions: {
-        dateStyle: 'full',
+        dateStyle: 'short',
         timeStyle: 'medium'
       }
     },
@@ -65,7 +66,8 @@ export default defineConfig({
       text: '在GitHub上编辑'
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/gongjuecloak/docs' }
+      { icon: 'github', link: 'https://github.com/gongjuecloak/docs' },
+      { icon: 'mastodon', link: 'https://lzplus.top/@docs' }
     ],
     footer: {
       message: '基于 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans">CC-BY-SA-4.0</a> 授权',
